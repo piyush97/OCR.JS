@@ -17,3 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single("avatar");
 
 app.set("view engine", "ejs");
+
+app.get("/upload", (req, res) => {
+  console.log("Piyush");
+});
