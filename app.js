@@ -31,7 +31,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/upload", (req, res) => {
-  console.log("Piyush");
+  upload(req, res, err => {
+    console.loog(req.file);
+  });
 });
 
 const PORT = 5000 || process.env.PORT;
