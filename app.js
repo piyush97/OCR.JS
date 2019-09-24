@@ -10,11 +10,11 @@ const worker = new TesseractWorker();
 //storage
 
 const storage = multer.diskStorage({
-  destination: (req, res, cb) => {
+  destination: (req, file, cb) => {
     cb(null, "./uploads");
   },
-  filename: (req, res, cb) => {
-    cb(null, req.file);
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
   }
 });
 
