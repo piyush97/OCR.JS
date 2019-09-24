@@ -34,17 +34,23 @@ app.post("/upload", (req, res) => {
   upload(req, res, err => {
     fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
       if (err) return console.log(`err: ${err}`);
+
       worker
         .recognize(data, "eng", { tessjs_create_pdf: "1" })
         .progress(progress => {
           console.log(progress);
         })
         .then(result => {
-          res.send(result.text);
+          res.redirect("/download");
         })
         .finally(() => worker.terminate());
     });
   });
+});
+
+app.get("/download", (req, res) => {
+  const file = `${__dirname}/tesseract.js-ocr-result.pdf`;
+  res.download(file);
 });
 
 const PORT = 5000 || process.env.PORT;
