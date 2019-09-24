@@ -23,7 +23,7 @@ const upload = multer({ storage: storage }).single("avatar");
 // View Engine
 
 app.set("view engine", "ejs");
-
+app.use(express.static("public"));
 // Routes
 
 app.get("/", (req, res) => {
