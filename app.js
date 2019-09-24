@@ -13,3 +13,5 @@ const storage = multer.diskStorage({
     cb(null, req.file);
   }
 });
+
+const upload = multer({ storage: storage }).single("avatar");
