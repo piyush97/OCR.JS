@@ -34,5 +34,5 @@ app.get("/upload", (req, res) => {
   console.log("Piyush");
 });
 
-const PORT = 50000 || process.env.PORT;
+const PORT = 5000 || process.env.PORT;
 app.listen(PORT, () => console.log("Listening on Port" + PORT));
