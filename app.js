@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/upload", (req, res) => {
+app.post("/upload", (req, res) => {
   upload(req, res, err => {
-    console.loog(req.file);
+    console.log(req.file);
   });
 });
 
